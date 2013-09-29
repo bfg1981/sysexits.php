@@ -13,7 +13,7 @@ composer.json:
       "repositories": [
         {"type": "vcs", "url": "https://github.com/sdj/sysexits.php"}
       ],
-      "requre" : {
+      "require" : {
         "sdj/sysexits.php": "dev-master"
       }
     }
