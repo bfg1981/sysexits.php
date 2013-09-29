@@ -1,7 +1,7 @@
 {
     "name": "sdj/sysexits.php",
-    "description": "PHP port of /usr/include/sysexits.h",
-    "license": "BSD",
+    "description": "PHP port of sysexits.h",
+    "license": "MIT",
     "authors": [
         {
             "name": "Silas Jantzen",
