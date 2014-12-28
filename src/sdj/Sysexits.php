@@ -2,7 +2,9 @@
 
 namespace sdj;
 
-class Sysexits {
+require_once 'ExitCodes.php';
+
+class Sysexits extends ExitCodes {
 	const VERSION = '0.0.1';
 
 	const EX_OK          = 0;
@@ -77,8 +79,9 @@ class Sysexits {
 		'config'                      => self::EX_CONFIG,
 		'config_error'                => self::EX_CONFIG,
 
-		'_max'                        => self::EX__MAX,
+		'_max'                        => self::EX__MAX
 	);
+
 
 	public static function exit_status($status) {
 		if (array_key_exists($status, self::$STATUS_CODES)) {
@@ -88,8 +91,19 @@ class Sysexits {
 		}
 	}
 
-	public static function do_exit($status = Sysexits::EX_OK) {
+	public static function statusFromExitCode($status) {
+	  $key = array_search($status, self::$STATUS_CODES);
+
+	  if ($key) {
+	    return $key;
+	  } else {
+	    return "unknown";
+	  }
+	}
+
+	public static function do_exit($status = Bashexits::EX_OK) {
 		$status = self::exit_status($status);
 		exit($status);
 	}
+
 }
